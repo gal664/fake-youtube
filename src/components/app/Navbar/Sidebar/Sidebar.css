@@ -1,10 +1,9 @@
-.fas{
+.sidebar_toggle{
       color: #A0A0A0;
-      margin-left: 10px;
+      margin-left: 30px;
       margin-right: 10px;
       font-size: 18px;
 }
-
 
 .logo{
       width: 80px;
@@ -17,14 +16,6 @@
       align-items: center;
       justify-content: space-between;
       position: fixed;
-}
-
-.sidebar_menu{
-      position: fixed;
-      top: 56px;
-      width: 240px;
-      height: 1000px;
-      background-color: #F1F1F1;
 }
 
 .SidebarContainer{
