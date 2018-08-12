@@ -9,13 +9,8 @@
       justify-content: space-between;
 }
 
-.logo{
-      width: 100px;
-      margin-left: 10px;
-      margin-right: 10px;
-}
 
-.profilePic{
-      width: 40px;
-      border-radius: 50%;
+.navbar_left{
+      display: flex;
+      align-items: center;
 }

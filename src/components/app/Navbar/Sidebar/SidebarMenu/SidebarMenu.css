@@ -1,0 +1,19 @@
+.menu{
+      list-style: none;      
+}
+
+.item{
+
+}
+
+.title{
+      
+}
+
+.sidebar_menu{
+      position: fixed;
+      top: 56px;
+      width: 240px;
+      height: 1000px;
+      background-color: #F1F1F1;
+}

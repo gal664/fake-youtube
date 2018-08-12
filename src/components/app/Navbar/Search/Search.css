@@ -1,16 +1,18 @@
 .searchContainer{
       display: flex;
       flex-direction: row;
-      height: 30px;
-      max-width: 500px;
+      height: 32px;
+      max-width: 640px;
+      /* min-width: 200px; */
       border: 1px solid #c6c6c6;
       margin: 0px 10px 0px 10px;
 }
 
 .searchInput{
-      min-width: 300px;
+      min-width: 570px;
       border: none;
       margin-right: 1px;
+      padding-left: 5px;
 }
 
 .searchButton{
