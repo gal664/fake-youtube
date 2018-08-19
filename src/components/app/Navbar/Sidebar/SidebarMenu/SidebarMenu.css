@@ -1,20 +1,17 @@
-.menu{
-      list-style: none;
-      padding: 0px;
-      margin-top: 12px;
-}
+.menu {
+  list-style: none;
+  padding: 0px;
+  margin-top: 12px; }
 
-.title{
-      padding: 0px 24px 0px 24px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-}
+.title {
+  padding: 0px 24px 0px 24px;
+  height: 40px;
+  display: flex;
+  align-items: center; }
 
-.sidebar_menu{
-      position: fixed;
-      top: 56px;
-      width: 17.5vw;
-      height: 1000px;
-      background-color: #F1F1F1;
-}
+.sidebar_menu {
+  position: fixed;
+  top: 56px;
+  width: 17.5vw;
+  height: 1000px;
+  background-color: #F1F1F1; }
