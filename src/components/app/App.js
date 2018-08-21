@@ -6,9 +6,11 @@ import Homepage from './Homepage/Homepage';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Navbar/>
-        <Homepage/>
+        <div className="contentContainer">
+          <Homepage/>
+        </div>
       </div>
     );
   }

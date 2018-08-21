@@ -5,10 +5,10 @@ import MenuItem from './MenuItem/MenuItem';
 class Sidebar extends Component {
   render() {
     return (
-        <div class="sidebar_menu">
-          <ul class="menu">
+        <div className="sidebar_menu">
+          <ul className="menu">
               <MenuItem/>
-              <li class="title">
+              <li className="title">
                 <span>Channels</span>
               </li>
             </ul>

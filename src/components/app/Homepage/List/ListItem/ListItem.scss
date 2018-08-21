@@ -1,0 +1,36 @@
+.listItemContainer{
+      
+      .pictureContainer{
+            width: 210px;
+            height: 117.8px;
+            margin-right: 5px;
+            
+            .playButton{
+                  
+            }
+            
+            .videoLength{
+                  z-index: 999;
+                  position: relative;
+                  top: 0;
+                  left: 0;
+            }
+            
+            .picture{
+                  background: red;
+                  width: 100%;
+                  height: 100%;
+            }
+      }
+
+      .title{
+            font-weight: 600;
+            margin: 10px 0px 15px 0px;
+      }
+
+      .metadata{
+            color: grey;
+            font-size: 0.8em;
+            line-height: 1.5em;
+      }
+}

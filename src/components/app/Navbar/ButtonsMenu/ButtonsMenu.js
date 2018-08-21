@@ -5,8 +5,8 @@ import profilePic from './profilePic.png';
 class ButtonsMenu extends Component {
   render() {
     return (
-      <div class="ButtonsMenuContainer">
-          <img class="profilePic" src={profilePic} alt="profile" />
+      <div className="ButtonsMenuContainer">
+          <img className="profilePic" src={profilePic} alt="profile" />
       </div>
     );
   }

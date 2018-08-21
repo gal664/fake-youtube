@@ -1,0 +1,28 @@
+.mainContainer{
+      margin: 10px;
+      max-width: calc(100% - 20px);
+      
+      .listContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .listTitle{
+                  font-weight: 600;
+                  margin: 24px 10px 24px 10px;
+                  width: 856px;
+            }
+
+            .list{
+                  width: 856px;
+                  display: flex;
+                  flex-direction: row;
+            }
+      }
+      
+      .listDivider{
+            width: 856px;
+            border-bottom: 1px solid #F1F1F1;
+            margin-top: 25px;
+      }
+}
