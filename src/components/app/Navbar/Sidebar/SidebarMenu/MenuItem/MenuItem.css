@@ -1,23 +1,19 @@
-.item .fas {
-  margin: 0px 25px 0px 0px;
-  color: #A0A0A0; }
-
-.current .fas {
-  color: #FF0000; }
-
-.current {
-  background-color: rgba(0, 0, 0, 0.1); }
-
 .item {
   padding: 0px 24px 0px 24px;
   height: 40px;
   display: flex;
   align-items: center; }
+  .item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer; }
+  .item .fas {
+    margin: 0px 25px 0px 0px;
+    color: #A0A0A0; }
 
-.item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  cursor: pointer; }
-
-.current:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  cursor: pointer; }
+.current {
+  background-color: rgba(0, 0, 0, 0.1); }
+  .current:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer; }
+  .current .fas {
+    color: #FF0000; }

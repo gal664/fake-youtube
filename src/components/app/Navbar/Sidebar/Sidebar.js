@@ -8,8 +8,8 @@ class Sidebar extends Component {
     return (
       <div class="SidebarContainer">
         <div class="sidebar_top">
-        <i class="sidebar_toggle fas fa-bars"></i>
-        <img class="logo" src={logo} alt="logo" />
+          <i class="sidebar_toggle fas fa-bars"></i>
+          <img class="logo" src={logo} alt="logo" />
         </div>
         <SidebarMenu/>
       </div>

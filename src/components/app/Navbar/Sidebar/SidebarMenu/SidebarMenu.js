@@ -7,10 +7,10 @@ class Sidebar extends Component {
     return (
         <div class="sidebar_menu">
           <ul class="menu">
-            <MenuItem/>
-            <li class="title">
-            <span>Channels</span>
-            </li>
+              <MenuItem/>
+              <li class="title">
+                <span>Channels</span>
+              </li>
             </ul>
         </div>
     );
