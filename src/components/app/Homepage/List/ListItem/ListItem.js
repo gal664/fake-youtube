@@ -6,9 +6,11 @@ class ListItem extends Component {
     return (
       <div className="listItemContainer">
         <div className="pictureContainer">
-          <div className="playButton"></div>
+        <div className="playButton">
+          <i class="fas fa-play"></i>
+        </div>
+        <div className="videoLength">04:20</div>
           <div className="picture"></div>
-          <div className="videoLength">04:20</div>
         </div>
         <div className="title">Video title that is also breaking a line</div>
         <div className="metadata">
