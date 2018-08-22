@@ -5,6 +5,6 @@ const users = require("./users");
 
 server.use(bodyParser.json());
 
-server.use("/users", users);
+server.use("/api/users", users);
 
-server.listen(3000);
+server.listen(9090);
