@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ListItem.css";
+import Thumbnail from "./thumbnail.webp"
 
 class ListItem extends Component {
   render() {
@@ -10,7 +11,7 @@ class ListItem extends Component {
           <i class="fas fa-play"></i>
         </div>
         <div className="videoLength">04:20</div>
-          <div className="picture"></div>
+          <img className="picture" src={Thumbnail} alt="thumbnail"></img>
         </div>
         <div className="title">Video title that is also breaking a line</div>
         <div className="metadata">

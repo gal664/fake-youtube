@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import './MenuItem.css'
 
 class Sidebar extends Component {
-  
+  constructor(props){
+    super(props);
+    this.state = {
+      current: this.props.current,
+      title: this.props.title,
+    }
+  }
+
   render() {
     return (
-      <div className="current">
-        <li className="item">
+        <li
+        className={`item ${this.state.current}`}
+        >
           <i className="fas fa-home"></i>
-          <span>{this.props.title}</span>
+          <span>{this.state.title}</span>
         </li>
-      </div>
     );
   }
 }
