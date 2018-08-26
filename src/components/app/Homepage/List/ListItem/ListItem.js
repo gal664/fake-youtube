@@ -8,7 +8,7 @@ class ListItem extends Component {
       <div className="listItemContainer">
         <div className="pictureContainer">
         <div className="playButton">
-          <i class="fas fa-play"></i>
+          <i className="fas fa-play"></i>
         </div>
         <div className="videoLength">04:20</div>
           <img className="picture" src={Thumbnail} alt="thumbnail"></img>

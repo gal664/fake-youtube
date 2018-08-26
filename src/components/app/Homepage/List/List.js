@@ -10,9 +10,6 @@ class List extends Component {
           <div className="listTitle">List title</div>
           <div className="list">
           <ListItem/>
-          <ListItem/>
-          <ListItem/>
-          <ListItem/>
           </div>
           <div className="listDivider"></div>
         </div>
