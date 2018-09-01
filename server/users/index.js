@@ -7,10 +7,10 @@ router.post('/', (req, res) => {
       user.save()
             .then(user => res.send(user))
             .catch(e => res.status(400).send(e.message))
-      });
-      
-      router.get('/', (req, res) => {
-            User.find({})
+});
+
+router.get('/', (req, res) => {
+      User.find({})
             .then(data => res.send(data))
             .catch(e => res.status(400).send(e.message))
 });

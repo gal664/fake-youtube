@@ -3,12 +3,21 @@ import "./Homepage.css";
 import List from "./List/List";
 
 class Homepage extends Component {
+
   render() {
     return (
       <div className="homepage">
-        <List/>
+        {this.renderLists()}
       </div>
     );
+  }
+
+  renderLists() {
+    return this.props.lists
+      .map(list => <List
+        title={list.title}
+        id={list.id}
+      />);
   }
 }
 
