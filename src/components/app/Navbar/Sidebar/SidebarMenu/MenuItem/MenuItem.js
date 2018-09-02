@@ -15,7 +15,7 @@ class Sidebar extends Component {
         <li
         className={`item ${this.state.current}`}
         >
-          <i className="fas fa-home"></i>
+          <i className={this.props.icon}></i>
           <span>{this.state.title}</span>
         </li>
     );

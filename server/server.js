@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const server = express();
 const users = require("./users");
 const videos = require("./videos");
-const lists = require("./lists");
+const channels = require("./channels");
 
 server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
@@ -17,6 +17,6 @@ server.use("/api/users", users);
 
 server.use("/api/videos", videos);
 
-server.use("/api/lists", lists);
+server.use("/api/channels", channels);
 
 server.listen(9090);

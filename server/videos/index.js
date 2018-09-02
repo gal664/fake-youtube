@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
             .catch(e => res.status(400).send(e.message))
 });
 
-router.get('/:list_id', (req, res) => {
-      Videos.find({ list_id: req.params.list_id })
+router.get('/:channel_id', (req, res) => {
+      Videos.find({ channel_id: req.params.channel_id })
             .then(videos => {
                   if (videos)
                         res.send(videos);

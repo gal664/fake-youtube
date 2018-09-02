@@ -15,8 +15,8 @@ class Homepage extends Component {
   renderLists() {
     return this.props.lists
       .map(list => <List
+        key={list.id}
         title={list.title}
-        id={list.id}
       />);
   }
 }

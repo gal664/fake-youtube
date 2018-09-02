@@ -7,23 +7,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: [],
+      channels: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:9090/api/lists")
+    fetch("http://localhost:9090/api/channels")
       .then(response => response.json())
-      .then(data => this.setState({ lists: data }));
+      .then(data => this.setState({ channels: data }));
   }
 
   render() {
     return (
       <div className="app">
-        <Navbar />
+        <Navbar
+          channels={this.state.channels}
+        />
         <div className="contentContainer">
           <Homepage
-            lists={this.state.lists}
+            lists={this.state.channels}
           />
         </div>
       </div>

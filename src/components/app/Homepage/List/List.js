@@ -8,11 +8,11 @@ class List extends Component {
     this.state = {};
   }
 
-  componentWillMount(){
-    fetch(`http://localhost:9090/api/videos`)
-      .then(response => response.json())
-      .then(data => this.setState({ lists: data }));
-  }
+  // componentWillMount(){
+  //   fetch(`http://localhost:9090/api/videos`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ videos: data }));
+  // }
 
   render() {
     return (

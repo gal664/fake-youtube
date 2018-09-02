@@ -8,9 +8,13 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
-        <div className="navbar_left"><Sidebar /></div>
+        <div className="navbar_left">
+        <Sidebar channels={this.props.channels}/>
+        </div>
         <Search />
-        <div className="navbar_right"><ButtonsMenu /></div>
+        <div className="navbar_right">
+        <ButtonsMenu />
+        </div>
       </div>
     );
   }

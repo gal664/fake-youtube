@@ -13,6 +13,17 @@ class Sidebar extends Component {
     alert("click");
   }
 
+  renderChannelsMenu(){
+      return this.props.channels
+        .map(channel => <MenuItem
+          key={channel.id}
+          title={channel.title}
+          type="channel"
+          icon={channel.icon}
+          onClick={this.setCurrentItem}
+        />);
+  }
+
   render() {
     return (
       <div className="sidebar_menu">
@@ -20,26 +31,26 @@ class Sidebar extends Component {
           <MenuItem
             type="appPage"
             title="Home"
+            icon="fas fa-home"
             current="current"
             onClick={this.setCurrentItem}
           />
           <MenuItem
             type="appPage"
             title="Subscriptions"
+            icon="fas fa-fire"
             onClick={this.setCurrentItem}
-          />
+            />
           <MenuItem
             type="appPage"
             title="History"
+            icon="fas fa-history"
             onClick={this.setCurrentItem}
           />
           <li className="title">
             <span>Channels</span>
           </li>
-          <MenuItem
-            type="channel"
-            title="Channel Name"
-            onClick={this.setCurrentItem} />
+          {this.renderChannelsMenu()}
         </ul>
       </div>
     );

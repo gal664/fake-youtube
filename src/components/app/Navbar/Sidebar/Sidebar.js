@@ -15,7 +15,7 @@ class Sidebar extends Component {
   toggleMenu(){
     let result;
     if(this.state.isMenuShown){
-      result = (<SidebarMenu/>);
+      result = (<SidebarMenu channels={this.props.channels}/>);
     }
     return result;
     

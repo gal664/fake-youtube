@@ -1,7 +1,7 @@
 const db = require('../db');
 
 const videoSchema = new db.Schema({
-      list_id: Number,
+      channel_id: Number,
       title: String,
       author_id: String,
       thumbnail: String,
