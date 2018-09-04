@@ -1,9 +1,12 @@
 const db = require('../db');
+const { Schema } = require('mongoose');
 
 const videoSchema = new db.Schema({
-      channel_id: Number,
+      channel: {
+            type: Schema.Types.ObjectId,
+            ref: "channel"
+      },
       title: String,
-      author_id: String,
       thumbnail: String,
       length: String,
       views: Number,

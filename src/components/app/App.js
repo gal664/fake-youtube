@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9090/api/channels")
+    fetch("http://localhost:9090/api/channel")
       .then(response => response.json())
       .then(data => this.setState({ channels: data }));
   }

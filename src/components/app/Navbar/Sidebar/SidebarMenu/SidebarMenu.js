@@ -16,7 +16,7 @@ class Sidebar extends Component {
   renderChannelsMenu(){
       return this.props.channels
         .map(channel => <MenuItem
-          key={channel.id}
+          key={channel._id}
           title={channel.title}
           type="channel"
           icon={channel.icon}

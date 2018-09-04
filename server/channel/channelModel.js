@@ -2,8 +2,7 @@ const db = require('../db');
 
 const channelSchema = new db.Schema({
       title: String,
-      icon: String,
-      id: Number,
+      icon: String
 })
 
 const Channel = db.model('channel', channelSchema);

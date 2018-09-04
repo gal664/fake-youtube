@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const server = express();
-const users = require("./users");
-const videos = require("./videos");
-const channels = require("./channels");
+const video = require("./video");
+const channel = require("./channel");
 
 server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
@@ -13,10 +12,8 @@ server.use((req, res, next) => {
 
 server.use(bodyParser.json());
 
-server.use("/api/users", users);
+server.use("/api/video", video);
 
-server.use("/api/videos", videos);
-
-server.use("/api/channels", channels);
+server.use("/api/channel", channel);
 
 server.listen(9090);
