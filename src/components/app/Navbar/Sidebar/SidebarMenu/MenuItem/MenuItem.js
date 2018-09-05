@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './MenuItem.css'
 
 class Sidebar extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       current: this.props.current,
@@ -10,14 +10,25 @@ class Sidebar extends Component {
     }
   }
 
+  setIcon() {
+    switch (this.props.type) {
+      case "channel":
+        return (<img className="channelIcon" src={this.props.icon} alt={this.state.title}></img>)
+      case "appPage":
+        return (<i className={this.props.icon}></i>)
+      default:
+        return (<img className="channelIcon" src={this.props.icon} alt={this.state.title}></img>)
+    }
+  }
+
   render() {
     return (
-        <li
+      <li
         className={`item ${this.state.current}`}
-        >
-          <i className={this.props.icon}></i>
-          <span>{this.state.title}</span>
-        </li>
+      >
+        {this.setIcon()}
+        <span>{this.state.title}</span>
+      </li>
     );
   }
 }
