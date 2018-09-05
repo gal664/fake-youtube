@@ -4,14 +4,6 @@ import List from "./List/List";
 
 class Homepage extends Component {
 
-  render() {
-    return (
-      <div className="homepage">
-        {this.renderLists()}
-      </div>
-    );
-  }
-
   renderLists() {
     return this.props.lists
       .map(list => <List
@@ -19,6 +11,14 @@ class Homepage extends Component {
         id={list._id}
         title={list.title}
       />);
+  }
+
+  render() {
+    return (
+      <div className="homepage">
+        {this.renderLists()}
+      </div>
+    );
   }
 }
 

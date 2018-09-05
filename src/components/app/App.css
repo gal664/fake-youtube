@@ -7,13 +7,12 @@ body {
 .app {
   width: 100%;
   display: flex;
-  flex-direction: column; }
-
-.contentContainer {
-  position: relative;
-  left: 240px;
-  top: 56px;
-  width: 82.5vw; }
+  flex-direction: column;
+  align-items: flex-end; }
+  .app .contentContainer {
+    position: relative;
+    top: 56px;
+    width: 82.5vw; }
 
 /* ========================================================================== */
 /* normalize below */

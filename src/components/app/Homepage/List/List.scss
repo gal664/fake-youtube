@@ -1,11 +1,10 @@
 .mainContainer{
-      margin: 10px;
+      margin: 10px 10px 10px 150px;
       max-width: calc(100% - 20px);
-      
+
       .listContainer{
             display: flex;
             flex-direction: column;
-            align-items: center;
 
             .listTitle{
                   margin: 24px 10px 24px 10px;
@@ -16,6 +15,9 @@
                   width: 856px;
                   display: flex;
                   flex-direction: row;
+                  // overflow: hidden;
+                  // white-space: nowrap;
+                  // text-overflow: ellipsis;
             }
       }
       

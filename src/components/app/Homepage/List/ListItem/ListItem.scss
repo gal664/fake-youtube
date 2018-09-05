@@ -1,5 +1,6 @@
 .listItemContainer{
-      width: 210px;
+      min-width: 210px;
+      max-width: 210px;
       height: 100%;
       margin-right: 5px;
 
@@ -56,9 +57,9 @@
       }
 
       .title{
-            margin: 10px 0px 15px 0px;
+            margin: 10px 0px 10px 0px;
             font-size: 0.95em;
-            height: 34px;
+            max-height: 34px;
             overflow-y: hidden;
             white-space: normal;
             text-overflow: ellipsis;
