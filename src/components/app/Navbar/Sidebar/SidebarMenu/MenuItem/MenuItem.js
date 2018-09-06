@@ -27,7 +27,7 @@ class Sidebar extends Component {
         className={`item ${this.state.current}`}
       >
         {this.setIcon()}
-        <span>{this.state.title}</span>
+        <span className="title">{this.state.title}</span>
       </li>
     );
   }

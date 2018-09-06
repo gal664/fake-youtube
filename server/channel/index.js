@@ -15,4 +15,15 @@ router.post('/', (req, res) => {
             .catch(e => res.status(400).send(e.message))
 });
 
+router.put('/:channelId', (req, res) => {
+      Channel.findByIdAndUpdate(req.params.channelId,
+            req.body,
+            { new: true },
+            (err, data) => {
+                  if (err) return res.status(500).send(err);
+                  return res.send(data);
+            }
+      )
+});
+
 module.exports = router;

@@ -3,20 +3,24 @@ import "./List.css";
 import ListItem from "./ListItem/ListItem";
 
 class List extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLeftSide: true,
+      size: this.props.size,
+    };
+    this.slideListBtnClickHandler = this.slideListBtnClickHandler.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     fetch(`http://localhost:9090/api/video?channel=${this.props.id}`)
       .then(response => response.json())
-      .then(data => this.setState({ videos: data}));
+      .then(data => this.setState({ videos: data }));
   }
 
   renderVideos() {
     if (!this.state.videos) return '';
-    return this.state.videos
+    return this.state.videos.slice(0, this.state.size)
       .map(video => <ListItem
         key={video._id}
         id={video._id}
@@ -28,14 +32,44 @@ class List extends Component {
         author={video.channel.title}
       />);
   }
-  
+
+  slideListBtnClickHandler() {
+    this.setState({ isLeftSide: !this.state.isLeftSide })
+  }
+
+  setSlideListBtnArrowSide() {
+    if (this.state.isLeftSide) {
+      return (
+        <div className="slideListBtn right" onClick={this.slideListBtnClickHandler}>
+          <i className="fas fa-chevron-right"></i>
+        </div>
+      )
+    } else {
+      return (
+        <div className="slideListBtn left" onClick={this.slideListBtnClickHandler}>
+          <i className="fas fa-chevron-left"></i>
+        </div>
+      )
+    }
+  }
+
+  slideList(){
+    if (this.state.isLeftSide) return "videosContainer right";
+    if (!this.state.isLeftSide) return "videosContainer left";
+  }
+
   render() {
     return (
       <div className="mainContainer">
         <div className="listContainer">
           <div className="listTitle">{this.props.title}</div>
           <div className="list">
-          {this.renderVideos()}
+            <div className="listSlider">
+              <div className={this.slideList()}>
+                {this.renderVideos()}
+              </div>
+            </div>
+              {this.setSlideListBtnArrowSide()}
           </div>
           <div className="listDivider"></div>
         </div>

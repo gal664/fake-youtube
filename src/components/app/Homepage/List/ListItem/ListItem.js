@@ -11,7 +11,7 @@ class ListItem extends Component {
   calculateViewsCounter(views){
     if(views > 1000000000) return `${Math.round( views/1000000000 * 10) / 10}B`;
     if(views > 1000000) return `${Math.round( views/1000000 * 10) / 10}M`;
-    if(views < 1000000 && views > 10000) return `${Math.round( views/1000 * 10) / 10}K`;
+    if(views < 1000000 && views > 10000) return `${Math.round( views/100000 * 100)}K`;
     if(views < 1000) return views;
   }
   

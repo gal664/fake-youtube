@@ -10,14 +10,53 @@
                   margin: 24px 10px 24px 10px;
                   width: 856px;
             }
-
+            
+            
             .list{
-                  width: 856px;
                   display: flex;
-                  flex-direction: row;
-                  // overflow: hidden;
-                  // white-space: nowrap;
-                  // text-overflow: ellipsis;
+                  .listSlider{
+                        width: 856px;
+                        overflow: hidden;
+                        .videosContainer{
+                              position: relative;
+                              display: flex;
+                              flex-direction: row;
+                              
+                              &.right{
+                                    right: 0px;                              
+                              }
+                              
+                              &.left{
+                                    right: 430px;
+                              }
+                        }
+                  }
+                  .slideListBtn{
+                        position: relative;
+                        top: calc(77.8px / 2);
+                        z-index: 999;
+                        width: 40px;
+                        height: 40px;
+                        background: white;
+                        color: #A0A0A0;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 40px;
+                        font-size: 0.9em;
+                        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+                        
+                        &.right{
+                              left: -20px;                              
+                        }
+                        
+                        &.left{
+                              left: -876px;
+                        }
+
+                        &:hover{
+                              cursor: pointer;
+                        }
+                  }
             }
       }
       

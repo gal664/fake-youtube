@@ -38,6 +38,17 @@ router.get('/:videoId', (req, res) => {
             }).catch(e => res.status(400).send(e.message))
 });
 
+router.put('/:videoId', (req, res) => {
+      Video.findByIdAndUpdate(req.params.videoId,
+            req.body,
+            { new: true },
+            (err, data) => {
+                  if (err) return res.status(500).send(err);
+                  return res.send(data);
+            }
+      )
+});
+
 router.use("/:videoId/comment", comment);
 
 module.exports = router;
