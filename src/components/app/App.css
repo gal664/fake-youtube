@@ -11,8 +11,11 @@ body {
   align-items: flex-end; }
   .app .contentContainer {
     position: relative;
-    top: 56px;
-    width: 82.5vw; }
+    top: 56px; }
+    .app .contentContainer.menuIsOpen {
+      width: 82.5vw; }
+    .app .contentContainer.menuIsClosed {
+      width: 100vw; }
 
 /* ========================================================================== */
 /* normalize below */

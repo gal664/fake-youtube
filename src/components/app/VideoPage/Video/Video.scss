@@ -1,0 +1,56 @@
+.mainConteiner{
+      position: relative;
+      margin-top: 25px;
+      margin-left: 65px;
+      width: 790px;
+
+      .videoContainer{
+      }
+
+      .title{
+            margin-top: 16px;
+            font-size: 1.1em;
+            max-height: 1.2em;
+            overflow-y: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            word-break: break-all;
+      }
+      .infoBar{
+            margin-top: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #F1F1F1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            .views{
+                  color: #A0A0A0;
+                  font-size: 1em;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+            }
+            .likesAndDislikesContainer{
+                  color: grey;
+                  border-bottom: 2px solid grey;
+                  padding-bottom: 20px;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+
+                  &:hover{
+                        cursor: pointer;
+                  }
+
+                  .fas{
+                        margin-right: 10px;
+                  }
+                  
+                  .like{
+                        margin-right: 20px;
+                  }
+            }
+      }
+}

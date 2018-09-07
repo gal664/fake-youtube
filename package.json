@@ -12,6 +12,7 @@
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
     "timediff": "^1.1.1"
   },
   "scripts": {

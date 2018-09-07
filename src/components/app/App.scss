@@ -15,8 +15,14 @@ body {
   .contentContainer{
     position: relative;
     top: 56px;
-    width: 82.5vw;
-  
+
+    &.menuIsOpen{
+      width: 82.5vw;
+    }
+
+    &.menuIsClosed{
+      width: 100vw;
+    }
   }
 }
 

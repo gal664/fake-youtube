@@ -5,12 +5,7 @@ import MenuItem from './MenuItem/MenuItem';
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
-  }
-
-  setCurrentItem() {
-    alert("click");
+    this.state = {}
   }
 
   renderChannelsMenu(){

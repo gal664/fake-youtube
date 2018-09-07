@@ -1,0 +1,70 @@
+.mainContainer{
+      margin: 10px 10px 10px 150px;
+      max-width: calc(100% - 20px);
+
+      .listContainer{
+            display: flex;
+            flex-direction: column;
+
+            .listTitle{
+                  margin: 24px 10px 24px 10px;
+                  width: 856px;
+            }
+            
+            
+            .list{
+                  display: flex;
+                  .listSlider{
+                        width: 856px;
+                        overflow: hidden;
+                        .videosContainer{
+                              position: relative;
+                              display: flex;
+                              flex-direction: row;
+                              
+                              &.right{
+                                    transition: 0.3s;
+                                    right: 0px;                              
+                              }
+                              
+                              &.left{
+                                    transition: 0.3s;
+                                    right: 430px;
+                              }
+                        }
+                  }
+                  .slideListBtn{
+                        position: relative;
+                        top: calc(77.8px / 2);
+                        z-index: 999;
+                        width: 40px;
+                        height: 40px;
+                        background: white;
+                        color: #A0A0A0;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 40px;
+                        font-size: 0.9em;
+                        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+                        
+                        &.right{
+                              left: -20px;                              
+                        }
+                        
+                        &.left{
+                              left: -876px;
+                        }
+
+                        &:hover{
+                              cursor: pointer;
+                        }
+                  }
+            }
+      }
+      
+      .listDivider{
+            width: 856px;
+            border-bottom: 1px solid #F1F1F1;
+            margin-top: 25px;
+      }
+}
