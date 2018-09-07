@@ -23,10 +23,12 @@
                               flex-direction: row;
                               
                               &.right{
+                                    transition: 0.3s;
                                     right: 0px;                              
                               }
                               
                               &.left{
+                                    transition: 0.3s;
                                     right: 430px;
                               }
                         }
