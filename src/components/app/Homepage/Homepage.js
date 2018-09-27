@@ -6,7 +6,7 @@ class Homepage extends Component {
 
   setListSize(width){
     if(width <= 1400) return 6;
-    if(width >= 1400) return 8
+    if(width >= 1400) return 8;
   }
 
   renderLists() {

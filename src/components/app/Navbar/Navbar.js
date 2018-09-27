@@ -9,7 +9,7 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="navbar_left">
-        {/* <Sidebar channels={this.props.channels}/> */}
+        <Sidebar channels={this.props.channels}/>
         </div>
         <Search />
         <div className="navbar_right">

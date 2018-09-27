@@ -8,6 +8,12 @@ router.get('/', (req, res) => {
             .catch(e => res.status(400).send(e.message))
 });
 
+router.get('/:channelId', (req, res) => {
+      Channel.findById(req.params.channelId)
+            .then(data => res.send(data))
+            .catch(e => res.status(400).send(e.message))
+});
+
 router.post('/', (req, res) => {
       const channel = new Channel(req.body);
       channel.save()

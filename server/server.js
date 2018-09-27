@@ -12,8 +12,8 @@ server.use((req, res, next) => {
 
 server.use(bodyParser.json());
 
-server.use("/api/video", video);
-
 server.use("/api/channel", channel);
+
+server.use("/api/video", video);
 
 server.listen(9090);

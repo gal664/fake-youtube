@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Sidebar.css'
 import SidebarMenu from "./SidebarMenu/SidebarMenu";
 import logo from "./logo.png";
+import { Link } from 'react-router-dom';
 
 class Sidebar extends Component {
   constructor(props){
@@ -31,7 +32,9 @@ class Sidebar extends Component {
         <div className="sidebar_top">
           <i
           className="sidebar_toggle fas fa-bars" onClick={this.sidebarToggleClickHandler}></i>
-          <img className="logo" src={logo} alt="logo"/>
+          <Link to='/'>
+            <img className="logo" src={logo} alt="logo"/>
+          </Link>
         </div>
         {this.toggleMenu()}
       </div>

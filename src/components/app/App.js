@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './Navbar/Navbar';
-// import Homepage from './Homepage/Homepage';
+import Homepage from './Homepage/Homepage';
 import VideoPage from './VideoPage/VideoPage';
-
+import { Route, Switch } from 'react-router-dom'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,9 +13,9 @@ class App extends Component {
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-  
+
   updateWindowDimensions() {
-    this.setState({ windowDimensions:{width: window.innerWidth, height: window.innerHeight} });
+    this.setState({ windowDimensions: { width: window.innerWidth, height: window.innerHeight } });
   }
 
   componentDidMount() {
@@ -33,16 +33,23 @@ class App extends Component {
         <Navbar
           channels={this.state.channels}
         />
-        <div className="contentContainer menuIsClosed">
-          {/* <Homepage
-            lists={this.state.channels}
-            windowDimensions={this.state.windowDimensions}
-          /> */}
-          <VideoPage
-            video={this.state.video}
-            lists={this.state.channels}
-            windowDimensions={this.state.windowDimensions}
-          />
+        <div className="contentContainer menuIsOpen">
+          <div className="contentContainer menuIsClosed">
+            <Switch>
+              <Route exact path='/'
+                component ={() => <Homepage
+                  lists={this.state.channels}
+                  windowDimensions={this.state.windowDimensions}
+                />}
+              />
+              <Route path='/video'
+                component ={() => <VideoPage
+                  video={this.state.video}
+                  windowDimensions={this.state.windowDimensions}
+                />}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
     );

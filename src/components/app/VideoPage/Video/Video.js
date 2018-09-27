@@ -36,19 +36,20 @@ class Video extends Component {
   embedVideo() {
     return (
       <iframe
+        title={this.props.title}
         width="790"
         height="415"
         src={this.splitSrcString()}
-        frameborder="0"
+        frameBorder="0"
         allow="autoplay; encrypted-media"
-        allowfullscreen>
+        allowFullScreen>
       </iframe>
     );
   }
 
   render() {
     return (
-      <div className="mainConteiner">
+      <div className="videoConteiner">
         {this.embedVideo()}
         <div className="title">{this.props.title}</div>
         <div className="infoBar">
@@ -57,12 +58,12 @@ class Video extends Component {
           </div>
           <div className="likesAndDislikesContainer">
             <div className="like">
-              <i class="fas fa-thumbs-up"></i>
-              <span>80K</span>
+              <i className="fas fa-thumbs-up"></i>
+              <span>{this.props.likes}</span>
             </div>
             <div className="dislike">
-              <i class="fas fa-thumbs-down"></i>
-              <span>1.1K</span>
+              <i className="fas fa-thumbs-down"></i>
+              <span>{this.props.dislikes}</span>
             </div>
           </div>
         </div>

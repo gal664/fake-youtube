@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./ListItem.css";
 import timediff from "timediff";
+import { NavLink } from 'react-router-dom'
 
 class ListItem extends Component {
   constructor(props) {
@@ -38,13 +39,15 @@ class ListItem extends Component {
   render() {
     return (
       <div className="listItemContainer">
-        <div className="pictureContainer">
+        {/* <div className="pictureContainer"> */}
+          <NavLink to='/video' className="pictureContainer">
           <div className="playButton">
             <i className="fas fa-play"></i>
           </div>
           <div className="videoLength">{this.props.length}</div>
           <img className="picture" src={this.props.thumbnail} alt={this.props.title}></img>
-        </div>
+        {/* </div> */}
+        </NavLink>
         <div className="title">{this.props.title}</div>
         <div className="metadata">
           <span className="author">{this.props.author}</span>

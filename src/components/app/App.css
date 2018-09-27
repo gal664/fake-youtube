@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+*:focus {
+  outline: none; }
+
 body {
   background: #fafafa;
   font-family: 'Roboto', sans-serif;
