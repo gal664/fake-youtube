@@ -18,5 +18,4 @@ server.use("/api/channel", channel);
 
 server.use("/api/video", video);
 
-// server.listen(9090);
 server.listen(process.env.PORT || 9090);
