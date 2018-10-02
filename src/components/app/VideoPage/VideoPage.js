@@ -9,9 +9,10 @@ class VideoPage extends Component {
     this.state = {
       video: {}
     }
+    this.getVideo();    
   }
   getVideo() {
-    fetch("http://localhost:9090/api/video")
+    fetch(`http://localhost:9090/api/video?_id=${this.props.video}`)
       .then(response => response.json())
       .then(data => this.setState({ video: data }));
   }

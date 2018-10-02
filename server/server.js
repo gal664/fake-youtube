@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const server = express();
 const video = require("./video");
 const channel = require("./channel");
-
+const path = require("path");
 server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -11,6 +11,8 @@ server.use((req, res, next) => {
 });
 
 server.use(bodyParser.json());
+
+server.use(express.static(path.join(__dirname, "../build")));
 
 server.use("/api/channel", channel);
 

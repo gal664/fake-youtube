@@ -23,25 +23,6 @@ class Sidebar extends Component {
     return (
       <div className="sidebar_menu">
         <ul className="menu">
-          <MenuItem
-            type="appPage"
-            title="Home"
-            icon="fas fa-home"
-            current="current"
-            onClick={this.setCurrentItem}
-          />
-          <MenuItem
-            type="appPage"
-            title="Subscriptions"
-            icon="fas fa-fire"
-            onClick={this.setCurrentItem}
-            />
-          <MenuItem
-            type="appPage"
-            title="History"
-            icon="fas fa-history"
-            onClick={this.setCurrentItem}
-          />
           <li className="title">
             <span>Channels</span>
           </li>

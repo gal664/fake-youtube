@@ -4,6 +4,7 @@ import Navbar from './Navbar/Navbar';
 import Homepage from './Homepage/Homepage';
 import VideoPage from './VideoPage/VideoPage';
 import { Route, Switch } from 'react-router-dom'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,6 @@ class App extends Component {
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-
     fetch("http://localhost:9090/api/channel")
       .then(response => response.json())
       .then(data => this.setState({ channels: data }));
@@ -30,9 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Navbar
-          channels={this.state.channels}
-        />
+        <Navbar channels={this.state.channels}/>
         <div className="contentContainer menuIsOpen">
           <div className="contentContainer menuIsClosed">
             <Switch>

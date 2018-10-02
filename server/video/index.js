@@ -4,9 +4,10 @@ const comment = require("./comment");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const { channel, query } = req.query;
+  const { channel, _id, query } = req.query;
   let filter = {};
   if (channel) filter.channel = channel;
+  if (_id) filter._id = _id;
   if (query) {
     const rgx = new RegExp(query, "i");
     filter.$or = [{ body: rgx }, { title: rgx }];
@@ -27,8 +28,7 @@ router.post("/", (req, res) => {
 });
 
 router.get("/:videoId", (req, res) => {
-  Video.find({ id: req.params.videoId })
-    .then(video => {
+  Video.findById(req.params.videoId, video => {
       if (video) res.send(video);
       else res.status(404).send("video not found");
     })
