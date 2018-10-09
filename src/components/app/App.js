@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
     this.state = {
       channels: [],
-      video: "5b90161e422f3c5668259caa",
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -32,7 +31,7 @@ class App extends Component {
       <div className="app">
         <Navbar channels={this.state.channels}/>
         <div className="contentContainer menuIsOpen">
-          <div className="contentContainer menuIsClosed">
+          {/* <div className="contentContainer menuIsClosed"> */}
             <Switch>
               <Route exact path='/'
                 component ={() => <Homepage
@@ -49,7 +48,7 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 }
