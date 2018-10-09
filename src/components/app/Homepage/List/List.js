@@ -13,7 +13,7 @@ class List extends Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:9090/api/video?channel=${this.props.id}`)
+    fetch(`/api/video?channel=${this.props.id}`)
       .then(response => response.json())
       .then(data => this.setState({ videos: data }));
   }

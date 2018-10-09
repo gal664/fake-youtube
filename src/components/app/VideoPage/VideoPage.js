@@ -12,13 +12,13 @@ class VideoPage extends Component {
     this.getVideo();    
   }
   getVideo() {
-    fetch(`http://localhost:9090/api/video?_id=${this.props.video}`)
+    fetch(`/api/video?_id=${this.props.video}`)
       .then(response => response.json())
       .then(data => this.setState({ video: data }));
   }
 
   getChannel() {
-    fetch("http://localhost:9090/api/channel")
+    fetch("/api/channel")
       .then(response => response.json())
       .then(data => this.setState({ channel: data }));
   }
@@ -35,7 +35,7 @@ class VideoPage extends Component {
       />);
   }
   renderVideoData() {
-    // fetch("http://localhost:9090/api/channel/?channelId=5b90109c32616728e4a1c03b")
+    // fetch("/api/channel/?channelId=5b90109c32616728e4a1c03b")
     // .then(response => response.json())
     // .then(data => this.setState({ channels: data })); // will return channel data
     return (

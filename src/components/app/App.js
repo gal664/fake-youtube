@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-    fetch("http://localhost:9090/api/channel")
+    fetch("/api/channel")
       .then(response => response.json())
       .then(data => this.setState({ channels: data }));
   }
