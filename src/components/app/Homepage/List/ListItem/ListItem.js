@@ -40,7 +40,7 @@ class ListItem extends Component {
     return (
       <div className="listItemContainer">
         {/* <div className="pictureContainer"> */}
-          <NavLink to='/video' className="pictureContainer">
+          <NavLink to={`Video/:${this.props.id}`} className="pictureContainer">
           <div className="playButton">
             <i className="fas fa-play"></i>
           </div>

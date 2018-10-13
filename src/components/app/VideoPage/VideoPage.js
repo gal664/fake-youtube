@@ -4,16 +4,16 @@ import Video from "./Video/Video";
 import VideoData from "./VideoData/VideoData";
 
 class VideoPage extends Component {
-  constructor(props) {
+  constructor(props, match) {
     super(props);
-    this.state = {
-      video: {}
-    }
-    this.getVideo();    
+    this.state = {}
+    this.setState({ videoId: match.params.id });
+    this.getVideo();
   }
+  
   getVideo() {
-    fetch(`/api/video?_id=${this.props.video}`)
-      .then(response => response.json())
+    fetch(`/api/video?_id=${this.state.videoId}`)
+      // .then(response => response.json())
       .then(data => this.setState({ video: data }));
   }
 
@@ -34,6 +34,7 @@ class VideoPage extends Component {
         dislikes={9}
       />);
   }
+
   renderVideoData() {
     // fetch("/api/channel/?channelId=5b90109c32616728e4a1c03b")
     // .then(response => response.json())
@@ -54,9 +55,11 @@ class VideoPage extends Component {
 
   render() {
     return (
-      <div className="VideoPage">
-        {this.renderVideo()}
-        {this.renderVideoData()}
+      <div className="videoPage">
+        <div className="videoComponentContainer">
+          {this.renderVideo()}
+          {this.renderVideoData()}
+        </div>
       </div>
     );
   }

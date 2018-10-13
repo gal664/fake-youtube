@@ -8,6 +8,7 @@ class Video extends Component {
     this.state = {};
   };
 
+  
   calculateTimeUploaded(time) {
     let parsedTime = Date.parse(time);
     let curTime = Date.parse(new Date());
@@ -37,8 +38,8 @@ class Video extends Component {
     return (
       <iframe
         title={this.props.title}
-        width="790"
-        height="415"
+        width="711"
+        height="373"
         src={this.splitSrcString()}
         frameBorder="0"
         allow="autoplay; encrypted-media"
@@ -49,7 +50,7 @@ class Video extends Component {
 
   render() {
     return (
-      <div className="videoConteiner">
+      <div className="videoContainer">
         {this.embedVideo()}
         <div className="title">{this.props.title}</div>
         <div className="infoBar">

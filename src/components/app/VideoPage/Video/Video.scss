@@ -1,11 +1,11 @@
-.videoConteiner{
+.videoContainer{
       position: relative;
       margin-top: 25px;
       margin-left: 65px;
-      width: 790px;
-
-      .videoContainer{
-      }
+      width: 711px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
 
       .title{
             margin-top: 16px;

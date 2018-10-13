@@ -39,7 +39,7 @@ class App extends Component {
                   windowDimensions={this.state.windowDimensions}
                 />}
               />
-              <Route path='/video'
+              <Route path='/video/:id'
                 component ={() => <VideoPage
                   video={this.state.video}
                   windowDimensions={this.state.windowDimensions}
