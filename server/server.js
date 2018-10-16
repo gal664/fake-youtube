@@ -4,6 +4,7 @@ const server = express();
 const video = require("./video");
 const channel = require("./channel");
 const path = require("path");
+
 server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

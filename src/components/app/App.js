@@ -8,35 +8,29 @@ import { Route, Switch } from 'react-router-dom'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      channels: [],
-    };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-
+  
   updateWindowDimensions() {
     this.setState({ windowDimensions: { width: window.innerWidth, height: window.innerHeight } });
   }
+  
+  componentWillMount(){
+    this.updateWindowDimensions();
+  }
 
   componentDidMount() {
-    this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-    fetch("/api/channel")
-      .then(response => response.json())
-      .then(data => this.setState({ channels: data }));
   }
 
   render() {
     return (
       <div className="app">
-        <Navbar channels={this.state.channels}/>
+        <Navbar/>
         <div className="contentContainer menuIsOpen">
-          {/* <div className="contentContainer menuIsClosed"> */}
             <Switch>
               <Route exact path='/'
-                component ={() => <Homepage
-                  lists={this.state.channels}
-                  windowDimensions={this.state.windowDimensions}
+                component ={() => <Homepage windowDimensions={this.state.windowDimensions}
                 />}
               />
               <Route path='/video/:id'
@@ -48,7 +42,6 @@ class App extends Component {
             </Switch>
           </div>
         </div>
-      // </div>
     );
   }
 }

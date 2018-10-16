@@ -5,11 +5,24 @@ import ButtonsMenu from "./ButtonsMenu/ButtonsMenu";
 import "./Navbar.css";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      channels: []
+    }
+  }
+  
+  componentWillMount() {
+    fetch("/api/channel")
+      .then(response => response.json())
+      .then(data => this.setState({ channels: data }));
+  }
+  
   render() {
     return (
       <div className="navbar">
         <div className="navbar_left">
-        <Sidebar channels={this.props.channels}/>
+        <Sidebar channels={this.state.channels}/>
         </div>
         <Search />
         <div className="navbar_right">

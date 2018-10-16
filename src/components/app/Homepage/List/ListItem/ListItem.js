@@ -39,14 +39,12 @@ class ListItem extends Component {
   render() {
     return (
       <div className="listItemContainer">
-        {/* <div className="pictureContainer"> */}
-          <NavLink to={`Video/:${this.props.id}`} className="pictureContainer">
+          <NavLink to={`video/${this.props.id}`} className="pictureContainer">
           <div className="playButton">
             <i className="fas fa-play"></i>
           </div>
           <div className="videoLength">{this.props.length}</div>
           <img className="picture" src={this.props.thumbnail} alt={this.props.title}></img>
-        {/* </div> */}
         </NavLink>
         <div className="title">{this.props.title}</div>
         <div className="metadata">

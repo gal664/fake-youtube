@@ -2,67 +2,60 @@ import React, { Component } from "react";
 import "./VideoPage.css";
 import Video from "./Video/Video";
 import VideoData from "./VideoData/VideoData";
+import UpNext from "./UpNext/UpNext";
+import { withRouter } from "react-router-dom";
 
 class VideoPage extends Component {
-  constructor(props, match) {
+  constructor(props) {
     super(props);
     this.state = {}
-    this.setState({ videoId: match.params.id });
     this.getVideo();
   }
   
   getVideo() {
-    fetch(`/api/video?_id=${this.state.videoId}`)
-      // .then(response => response.json())
-      .then(data => this.setState({ video: data }));
-  }
-
-  getChannel() {
-    fetch("/api/channel")
+    fetch(`/api/video/${this.props.match.params.id}`)
       .then(response => response.json())
-      .then(data => this.setState({ channel: data }));
+      .then(data => this.setState({ video: data }));
   }
 
   renderVideo() {
     return (
       <Video
-        id="5b90161e422f3c5668259caa" // id={this.props.video._id}
-        title="Avenged Sevenfold - Afterlife [Music Video]" // title={this.props.video.title}
-        videoSrc="https://www.youtube.com/watch?v=oJaBHSIRVlE" // videoSrc={this.props.video.videoSrc}
-        views={13039955} // views={this.props.video.views}
+        id={this.state.video._id}
+        title={this.state.video.title}
+        videoSrc={this.state.video.videoSrc}
+        views={this.state.video.views}
         likes={100}
         dislikes={9}
       />);
   }
 
   renderVideoData() {
-    // fetch("/api/channel/?channelId=5b90109c32616728e4a1c03b")
-    // .then(response => response.json())
-    // .then(data => this.setState({ channels: data })); // will return channel data
     return (
       <VideoData
-        id="5b90161e422f3c5668259caa" // id={this.props.video._id}
-        video={{
-          channel: {
-            _id: "5b90109c32616728e4a1c03b", // id={this.props.video.channel._id}
-            title: "Avenged Sevenfold", // id={this.props.video.channel.title}
-            icon: "https://yt3.ggpht.com/a-/AN66SAwYbvd2YElRsE58puzTZ5Yvp-QpYEZ9N8qrIw=s88-mo-c-c0xffffffff-rj-k-no" // id={this.props.video.channel.icon}
-          }
-        }}
-        timeUploaded="2010-04-29T00:00:00.000Z" // timeUploaded={this.props.video.time_uploaded}
-      />);
+      id={this.state.video._id}
+      channel={this.state.video.channel}
+      timeUploaded={this.state.video.time_uploaded}
+      />
+      );
+  }
+
+  renderUpNext(){
+    return <UpNext/>
   }
 
   render() {
+    if(!this.state.video) return <div>loading...</div>    
     return (
       <div className="videoPage">
         <div className="videoComponentContainer">
           {this.renderVideo()}
           {this.renderVideoData()}
         </div>
+        {this.renderUpNext()}
       </div>
     );
   }
 }
 
-export default VideoPage;
+export default withRouter(VideoPage);

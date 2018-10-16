@@ -8,6 +8,7 @@ const videoSchema = new db.Schema({
       },
       title: String,
       thumbnail: String,
+      thumbnail_animation: String,
       videoSrc: String,
       length: String,
       views: Number,
