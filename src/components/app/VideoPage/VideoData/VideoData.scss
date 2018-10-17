@@ -2,11 +2,37 @@
       position: relative;
       margin-top: 25px;
       margin-left: 65px;
-      width: 790px;
+      padding-bottom: 20px;
+      display: flex;
+      border-bottom: 1px solid #F1F1F1;
+
       
       .channelIcon{
             width: 48px;      
             height: 48px;
             border-radius: 50%;
-      }      
+      }
+      
+      .videoInfo{
+            margin-left: 15px;
+            width: calc(100% - 48px);
+            display: flex;
+            flex-direction: column;
+            
+            .channelText{
+                  display: flex;
+                  flex-direction: column;
+                  
+                  .channelTitle{
+                        font-size: 0.9em;
+                  }
+                  
+                  .publishDate{
+                        margin-top: 2px;
+                        font-size: 0.7em;
+                        color: #A0A0A0;
+                  }
+
+            }
+      }
 }

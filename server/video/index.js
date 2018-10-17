@@ -24,6 +24,19 @@ router.get("/:videoId", (req, res) => {
     .catch(e => res.status(400).send(e.message));
 });
 
+router.delete("/:videoId", (req, res) => {
+  let id = req.params.videoId
+  Video.findByIdAndRemove(id)
+  .catch(e => res.status(400).send(e.message))
+  .then(() => {
+    const response = {
+        message: "video successfully deleted",
+        id: id
+    };
+    res.send(response)
+  })
+});
+
 
 router.post("/", (req, res) => {
   const video = new Video(req.body);

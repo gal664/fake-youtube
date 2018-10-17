@@ -23,4 +23,17 @@ router.post('/', (req, res) => {
             .catch(e => res.status(400).send(e.message))
 });
 
+router.delete("/:channelId", (req, res) => {
+      let id = req.params.channelId
+      Channel.findByIdAndRemove(id)
+      .catch(e => res.status(400).send(e.message))
+      .then(() => {
+        const response = {
+            message: "video successfully deleted",
+            id: id
+        };
+        res.send(response)
+      })
+    });
+
 module.exports = router;

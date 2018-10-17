@@ -18,8 +18,8 @@ class VideoData extends Component {
   render() {
     return (
       <div className="videoDataContainer">
+        <img className="channelIcon" src={this.props.channel.icon} alt="channel Thumbnail"></img>
         <div className="videoInfo">
-          <img className="channelIcon" src={this.props.channel.icon} alt="channel Thumbnail"></img>
           <div className="channelText">
             <span className="channelTitle">{this.props.channel.title}</span>
             <span className="publishDate">{this.parseTimeUploaded()}</span>
