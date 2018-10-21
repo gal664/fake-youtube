@@ -1,0 +1,38 @@
+.addVideoPage{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      
+      .comment{
+            font-size: 0.8em;
+            margin-top: 10px;
+
+            .bold{
+                  color: red;
+                  font-weight: bold;
+            }
+      }
+
+      .notice{
+            margin: 10px 0px 10px 0px;
+      }
+
+      input{
+            width: 300px;
+            margin-top: 10px;
+      }
+
+      button{
+            width: 200px;
+            height: 2em;
+            margin-top: 10px;
+            border: none;
+            color: white;
+            background: red;
+
+            &:hover{
+                  cursor: pointer;
+            }
+      }
+}

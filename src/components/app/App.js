@@ -3,7 +3,8 @@ import './App.css';
 import Navbar from './Navbar/Navbar';
 import Homepage from './Homepage/Homepage';
 import VideoPage from './VideoPage/VideoPage';
-import { Route, Switch } from 'react-router-dom'
+import AddVideoPage from './AddVideoPage/AddVideoPage';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,11 @@ class App extends Component {
               <Route path='/video/:id'
                 component ={() => <VideoPage
                   video={this.state.video}
+                  windowDimensions={this.state.windowDimensions}
+                />}
+              />
+              <Route path='/add'
+                component ={() => <AddVideoPage
                   windowDimensions={this.state.windowDimensions}
                 />}
               />

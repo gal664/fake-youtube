@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import './ButtonsMenu.css'
-import profilePic from './profilePic.png';
+import { NavLink } from 'react-router-dom'
 
 class ButtonsMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMenuOpen: true
+    };
+
+    this.handleAddVideoButtonClick = this.handleAddVideoButtonClick.bind(this);
+  }
+
+  handleAddVideoButtonClick() {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  }
+
   render() {
-    return (
-      <div className="ButtonsMenuContainer">
-          <img className="profilePic" src={profilePic} alt="profile" />
-      </div>
-    );
+        return <NavLink to={`/add`} className="addVideosButton" onClick={this.handleAddVideoButtonClick}>Add Video</NavLink>
   }
 }
 

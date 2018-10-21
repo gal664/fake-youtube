@@ -14,7 +14,9 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "timediff": "^1.1.1"
+    "timediff": "^1.1.1",
+    "youtube-comment-api": "^3.0.2",
+    "youtube-info": "^1.2.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

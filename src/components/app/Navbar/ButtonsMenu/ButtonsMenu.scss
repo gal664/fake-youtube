@@ -1,11 +1,17 @@
-.ButtonsMenuContainer{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+.addVideosButton{
+      margin: 20px;
+      height: 35px;
+      width: 80px;
+      line-height: 35px;
+      background: white;
+      color: #A0A0A0;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 0.8em;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+      text-decoration-line: none;
       
-      .profilePic{
-            width: 32px;
-            border-radius: 50%;
-            margin: 20px;
+      &:hover{
+            cursor: pointer;
       }
 }
