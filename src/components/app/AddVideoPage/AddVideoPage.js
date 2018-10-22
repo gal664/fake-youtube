@@ -12,12 +12,84 @@ class AddVideoPage extends Component {
   }
 
   handleSubmit() {
+    let videoInfo,
+      channelInfo;
+    if (!this.videoIdInput.current.value || !this.channelThumbnailInput.current.value) {
+      console.log("missing data in input, can't proceed!")
+      return
+    }
+    console.log(`all parameters exist, starting to scrape ${this.videoIdInput.current.value}!`)
     fetch(`/api/video/scrape/${this.videoIdInput.current.value}`,
       {
-        method: 'POST',
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify({channelThumbnailUrl: this.channelThumbnailInput.current.value})
-      });
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        channelInfo = {
+          title: data.owner,
+          icon: this.channelThumbnailInput.current.value,
+          youtubeId: data.channelId
+        };
+        let parsedDuration = new Date(null);
+        parsedDuration.setSeconds(data.duration);
+        parsedDuration = parsedDuration.toISOString().substr(11, 8);
+        videoInfo = {
+          youtubeId: data.videoId,
+          title: data.title,
+          description: data.description,
+          thumbnail: data.thumbnailUrl,
+          videoSrc: data.url,
+          length: parsedDuration,
+          views: data.views,
+          time_uploaded: new Date(data.datePublished).toISOString(),
+          likeCount: data.likeCount,
+          dislikeCount: data.dislikeCount,
+        }
+        console.log(`scraped video, checking if channel is valid`)
+        fetch(`/api/channel?id=${data.channelId}`,
+          {
+            method: 'GET',
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              'Accept': 'application/json'
+            }
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.length > 0) {
+              console.log(`channel exists! linking video to ${channelInfo.title}`)
+              videoInfo.channel = data[0]._id
+            } else {
+              console.log(`channel does not exist! creating ${channelInfo.title}`)
+              fetch(`/api/channel`,
+                {
+                  method: 'POST',
+                  headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    'Accept': 'application/json'
+                  },
+                  body: JSON.stringify(channelInfo)
+                })
+                .then(data => console.log(data))
+              }
+            })
+            .then(data => {
+              fetch(`/api/video`,
+                {
+                  method: 'POST',
+                  headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    'Accept': 'application/json'
+                  },
+                  body: JSON.stringify(videoInfo)
+                })
+                .then(data => console.log(data))
+          })
+      })
   }
 
   render() {
