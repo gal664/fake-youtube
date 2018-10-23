@@ -21,21 +21,21 @@ class VideoPage extends Component {
   renderVideo() {
     return (
       <Video
-        id={this.state.video._id}
-        title={this.state.video.title}
-        videoSrc={this.state.video.videoSrc}
-        views={this.state.video.views}
-        likes={100}
-        dislikes={9}
+        id={this.state.video._id || ""}
+        title={this.state.video.title || ""}
+        videoSrc={this.state.video.videoSrc || ""}
+        views={this.state.video.views || ""}
+        likes={this.state.video.likeCount || ""}
+        dislikes={this.state.video.disLikeCount || ""}
       />);
   }
 
   renderVideoData() {
     return (
       <VideoData
-      id={this.state.video._id}
-      channel={this.state.video.channel}
-      timeUploaded={this.state.video.time_uploaded}
+      id={this.state.video._id || ""}
+      channel={this.state.video.channel || ""}
+      timeUploaded={this.state.video.time_uploaded || ""}
       />
       );
   }

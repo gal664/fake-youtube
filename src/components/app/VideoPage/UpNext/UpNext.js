@@ -31,11 +31,11 @@ class UpNext extends Component {
     return this.state.videos.map(video =>
       <UpnextListItem
         id={video._id}
-        length={video.length}
-        title={video.title}
-        thumbnail={video.thumbnail}
-        author={video.channel.title}
-        views={video.views}
+        length={video.length || ""}
+        title={video.title || ""}
+        thumbnail={video.thumbnail || ""}
+        author={video.channel.title || ""}
+        views={video.views || ""}
         key={video._id}
       />);
   }

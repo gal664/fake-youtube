@@ -14,8 +14,9 @@ class AddVideoPage extends Component {
   handleSubmit() {
     let videoInfo,
       channelInfo;
+
     if (!this.videoIdInput.current.value || !this.channelThumbnailInput.current.value) {
-      console.log("missing data in input, can't proceed!")
+      console.log("missing data in input, can't proceed")
       return
     }
     console.log(`all parameters exist, starting to scrape ${this.videoIdInput.current.value}!`)
@@ -34,9 +35,12 @@ class AddVideoPage extends Component {
           icon: this.channelThumbnailInput.current.value,
           youtubeId: data.channelId
         };
+
         let parsedDuration = new Date(null);
         parsedDuration.setSeconds(data.duration);
         parsedDuration = parsedDuration.toISOString().substr(11, 8);
+        // if(parsedDuration.indexOf("00:") === 0) parsedDuration.slice(3, parsedDuration.length)
+
         videoInfo = {
           youtubeId: data.videoId,
           title: data.title,
@@ -50,7 +54,7 @@ class AddVideoPage extends Component {
           dislikeCount: data.dislikeCount,
         }
         console.log(`scraped video, checking if channel is valid`)
-        fetch(`/api/channel?id=${data.channelId}`,
+        fetch(`/api/channel?id=${channelInfo.youtubeId}`,
           {
             method: 'GET',
             headers: {
@@ -61,10 +65,11 @@ class AddVideoPage extends Component {
           .then(res => res.json())
           .then(data => {
             if (data.length > 0) {
-              console.log(`channel exists! linking video to ${channelInfo.title}`)
-              videoInfo.channel = data[0]._id
-            } else {
-              console.log(`channel does not exist! creating ${channelInfo.title}`)
+              console.log(`channel exists, linking video to ${channelInfo.title}`)
+              channelInfo._id = data[0]._id
+            }
+            if (data.length == 0) {
+              console.log(`channel does not exist, creating ${channelInfo.title}`)
               fetch(`/api/channel`,
                 {
                   method: 'POST',
@@ -74,27 +79,33 @@ class AddVideoPage extends Component {
                   },
                   body: JSON.stringify(channelInfo)
                 })
-                .then(data => console.log(data))
-              }
-            })
-            .then(data => {
-              fetch(`/api/video`,
-                {
-                  method: 'POST',
-                  headers: {
-                    "Content-Type": "application/json; charset=utf-8",
-                    'Accept': 'application/json'
-                  },
-                  body: JSON.stringify(videoInfo)
+                .then(res => res.json())
+                .then(data => {
+                  videoInfo.channel = data._id
+                  fetch(`/api/video`,
+                    {
+                      method: 'POST',
+                      headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        'Accept': 'application/json'
+                      },
+                      body: JSON.stringify(videoInfo)
+                    })
+                    .then(() => {
+                      console.log("finished proccess, clearing inputs values")
+                      this.videoIdInput.current.value = ""
+                      this.channelThumbnailInput.current.value = ""
+                      console.log("inputs value have been reset, ready for another go")
+                    })
                 })
-                .then(data => console.log(data))
+            }
           })
       })
   }
 
   render() {
     return (
-      <div className="addVideoPage">
+      <div className="addVideoPage" >
         <h1 className="title">Add a video from Youtube</h1>
         <span className="notice">
           This project uses npm packages in order to get video information from youtube.<br />
