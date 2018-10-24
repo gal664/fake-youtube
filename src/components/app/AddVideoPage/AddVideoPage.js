@@ -66,7 +66,22 @@ class AddVideoPage extends Component {
           .then(data => {
             if (data.length > 0) {
               console.log(`channel exists, linking video to ${channelInfo.title}`)
-              channelInfo._id = data[0]._id
+              videoInfo.channel = data[0]._id
+              fetch(`/api/video`,
+              {
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8",
+                  'Accept': 'application/json'
+                },
+                body: JSON.stringify(videoInfo)
+              })
+              .then(() => {
+                console.log("finished proccess, clearing inputs values")
+                this.videoIdInput.current.value = ""
+                this.channelThumbnailInput.current.value = ""
+                console.log("inputs value have been reset, ready for another go")
+              })
             }
             if (data.length == 0) {
               console.log(`channel does not exist, creating ${channelInfo.title}`)

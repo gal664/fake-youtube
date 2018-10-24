@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const server = express();
 const video = require("./video");
 const channel = require("./channel");
-// const scrape = require("./scraper");
+const scrape = require("./scraper");
 const path = require("path");
 
 server.use((req, res, next) => {
@@ -20,6 +20,6 @@ server.use("/api/channel", channel);
 
 server.use("/api/video", video);
 
-// server.use("/api/scrape", scrape);
+server.use("/api/scrape", scrape);
 
 server.listen(process.env.PORT || 9090);
